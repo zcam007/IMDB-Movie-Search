@@ -12,17 +12,21 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-
+import { ThemeProvider } from 'emotion-theming';
+import theme from '@rebass/preset';
 import GlobalStyle from '../../global-styles';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
   return (
     <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+        <GlobalStyle />
+      </ThemeProvider>
     </div>
   );
 }

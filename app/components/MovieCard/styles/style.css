@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bree+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+.card-container{
+    /* align-content: center; */
+    
+    
+}
+.center {
+    margin: auto;
+    width: 50%;
+    /* border: 3px solid green; */
+    padding: 20px;
+  }
+ .shadow{
+     box-shadow: 5px 5px 10px #b3b3b3;
+     padding: 25px;
+     background-color: rgb(15, 15, 15,.9);
+ }
+ .title{
+    font-family: 'Bree Serif', serif;
+    font-weight: bold;
+    text-transform:uppercase;
+    color:white;
+    float: left;
+ }
+ p{
+     color: white;
+     text-align: left;
+ }
+ .tagline{
+     color:white;
+ }
+.minorHeadings{
+    font-family: 'Oswald', sans-serif;
+    color:#00e379;
+}
