@@ -113,7 +113,7 @@ export default class HomePage extends React.Component {
           if (i === response.data.genres.length - 1) {
             genre += obj.name;
           } else {
-            genre += obj.name + ', ';
+            genre += `${obj.name}, `;
           }
           return genre;
         });
@@ -123,7 +123,7 @@ export default class HomePage extends React.Component {
             if (i === response.data.genres.length - 1) {
               production_companies += obj.name;
             } else {
-              production_companies += obj.name + ', ';
+              production_companies += `${obj.name}, `;
             }
             return production_companies;
           },
@@ -131,12 +131,12 @@ export default class HomePage extends React.Component {
 
         // console.log(response.data);
         document.getElementById('background').style.background = null;
-        let urlComplete =
-          'https://image.tmdb.org/t/p/original' + response.data.backdrop_path;
-        document.getElementById('background').style.background =
-          'linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 90%), url(' +
-          urlComplete +
-          ') no-repeat center';
+        const urlComplete = `https://image.tmdb.org/t/p/original${
+          response.data.backdrop_path
+        }`;
+        document.getElementById(
+          'background',
+        ).style.background = `linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 90%), url(${urlComplete}) no-repeat center`;
 
         // background: linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 90%), url("https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80") no-repeat center;
 
@@ -146,9 +146,7 @@ export default class HomePage extends React.Component {
     return suggestion.title;
   };
 
-  getBackgound = () => {
-    return this.state.selectedMovie.backdrop_path;
-  };
+  getBackgound = () => this.state.selectedMovie.backdrop_path;
   constructor(props) {
     super(props);
     const intialMovie = {};
@@ -200,6 +198,6 @@ export default class HomePage extends React.Component {
     //     this.selectedMovie.state.backdrop_path +
     //     ')';
     // console.log(this.state.selectedMovie.backdrop_path);
-    //console.log(this.getBackgound());
+    // console.log(this.getBackgound());
   }
 }
