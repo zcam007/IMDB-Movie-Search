@@ -1,4 +1,3 @@
-// Important modules this config uses
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
@@ -116,7 +115,7 @@ module.exports = require('./webpack.base.babel')({
     }),
 
     new WebpackPwaManifest({
-      name: 'IMDB Movies App',
+      name: 'React Boilerplate',
       short_name: 'React BP',
       description: 'My React Boilerplate-based project!',
       background_color: '#fafafa',

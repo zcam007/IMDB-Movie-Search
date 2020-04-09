@@ -1,13 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import { Card, Image, Heading } from 'rebass';
-import { Media, Container, Row, Col } from 'react-bootstrap';
-
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 export default function Footer() {
   return (
     <>
       <div className="footer">
-        <p>Designed and Developed by ChandraMouli R</p>
+        <p>
+          <a href="https://hello.chandu.dev" target="_blank">
+            Designed & developed by ChandraMouli R{' '}
+            {/* <FontAwesomeIcon icon={faCoffee} /> */}
+          </a>
+        </p>
+        <p>
+          <a
+            href="https://github.com/zcam007/IMDB-Movie-Search"
+            target="_blank"
+          >
+            View code{' '}
+          </a>
+        </p>
       </div>
     </>
   );

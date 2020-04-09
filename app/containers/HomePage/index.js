@@ -169,7 +169,7 @@ export default class HomePage extends React.Component {
           <Container>
             <Row>
               <Col className="col">
-                <h1 className="logo">IMDB Movies</h1>
+                <h1 className="logo">IMDB Movies!</h1>
               </Col>
               <Col className="col">
                 <Autosuggest
@@ -185,8 +185,10 @@ export default class HomePage extends React.Component {
             </Row>
           </Container>
         </div>
+        <Row className="mt-5 mb-5">
+          <MovieCard movie={selectedMovie} />
+        </Row>
 
-        <MovieCard movie={selectedMovie} />
         <Footer />
       </div>
     );

@@ -77,7 +77,7 @@ background: black;
   border: 1px solid #eee;
   height: 200px;
   overflow:scroll;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .react-autosuggest__suggestion {
@@ -118,4 +118,17 @@ background: black;
 .footer p{   
   flex-shrink: 0; 
   text-align: center !important;
+  font-family: 'Crete Round', serif;
+  color: gray !important; 
+
+}
+.footer p a {
+  color: gray !important; 
+  transition: .7s;
+  text-decoration: none !important;
+
+  
+}
+.footer p a:hover{
+  color:gold !important;
 }
