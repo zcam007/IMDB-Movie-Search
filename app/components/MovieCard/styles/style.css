@@ -1,36 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bree+Serif&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@300&display=swap');
 .card-container{
     /* align-content: center; */
-    
+    padding-top: 0%;
     
 }
 .center {
     margin: auto;
-    width: 50%;
+    width: 60%;
     /* border: 3px solid green; */
     padding: 20px;
+    padding-top: 0px;
+    z-index: 100;
   }
  .shadow{
-     box-shadow: 5px 5px 10px #b3b3b3;
-     padding: 25px;
+     box-shadow: 5px 5px 15px #b3b3b3;
+     padding: 35px;
      background-color: rgb(15, 15, 15,.9);
  }
  .title{
-    font-family: 'Bree Serif', serif;
+    font-family: 'Lato', serif;
     font-weight: bold;
     text-transform:uppercase;
     color:white;
     float: left;
+    font-size:xx-large;
  }
  p{
      color: white;
      text-align: left;
+     font-family: 'Lato',sans-serif;;
+ }
+ .overview{
+    color: white;
+    text-align: left;
+    font-family: 'Lato',sans-serif;
+    font-size: small;
  }
  .tagline{
-     color:white;
+     font-family: 'Oswald', sans-serif;
+    color:#00e379;
  }
+
 .minorHeadings{
     font-family: 'Oswald', sans-serif;
     color:#00e379;
+    text-align: left!important;
+    font-size: large;
+}
+.productionCompanies{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: medium
+    
+}
+.genre{
+    font-family: 'Oswald', sans-serif;
+    color: #00e379;
+    font-size: large;
+    margin-bottom: 0px
+}
+.subheads{
+    font-family: 'Oswald', sans-serif;
+    color:white;
+    font-size: small;
+}
+.col{
+    padding-left: 0px;
 }

@@ -8,15 +8,17 @@
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Autosuggest from 'react-autosuggest';
 import axios from 'axios';
 import { debounce } from 'throttle-debounce';
 import MovieCard from '../../components/MovieCard';
 import './styles/style.css';
+import { Container, Row, Col } from 'react-bootstrap';
+import Footer from '../../components/Footer';
+
 export default class HomePage extends React.Component {
   state = {
-    value: 'Interstellar',
+    value: 'Joker',
     suggestions: [],
     selectedMovie: { title: '' },
   };
@@ -59,11 +61,6 @@ export default class HomePage extends React.Component {
           const robj = {};
           robj['title'] = obj.title;
           robj['id'] = obj.id;
-          robj['poster_path'] = obj.poster_path;
-          robj['overview'] = obj.overview;
-          robj['vote_average'] = obj.vote_average;
-          robj['release_date'] = obj.release_date;
-          robj['genres'] = obj.genres;
           return robj;
         });
         this.setState({ suggestions: results });
@@ -103,19 +100,64 @@ export default class HomePage extends React.Component {
         robj['vote_average'] = response.data.vote_average;
         robj['release_date'] = response.data.release_date;
         robj['tagline'] = response.data.tagline;
-        // robj['genres'] = response.data.genres;
+        robj['runtime'] = response.data.runtime;
+        robj['revenue'] = response.data.revenue
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        robj['backdrop_path'] = response.data.backdrop_path;
+
+        robj['vote_average'] = response.data.vote_average;
+
+        robj['genres'] = response.data.genres.map((obj, i) => {
+          let genre = '';
+          if (i === response.data.genres.length - 1) {
+            genre += obj.name;
+          } else {
+            genre += obj.name + ', ';
+          }
+          return genre;
+        });
+        robj['production_companies'] = response.data.production_companies.map(
+          (obj, i) => {
+            let production_companies = '';
+            if (i === response.data.genres.length - 1) {
+              production_companies += obj.name;
+            } else {
+              production_companies += obj.name + ', ';
+            }
+            return production_companies;
+          },
+        );
+
         // console.log(response.data);
+        document.getElementById('background').style.background = null;
+        let urlComplete =
+          'https://image.tmdb.org/t/p/original' + response.data.backdrop_path;
+        document.getElementById('background').style.background =
+          'linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 90%), url(' +
+          urlComplete +
+          ') no-repeat center';
+
+        // background: linear-gradient(rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 1) 90%), url("https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80") no-repeat center;
 
         this.setState({ selectedMovie: robj });
       });
 
-    console.log(suggestion.id);
     return suggestion.title;
   };
 
+  getBackgound = () => {
+    return this.state.selectedMovie.backdrop_path;
+  };
+  constructor(props) {
+    super(props);
+    const intialMovie = {};
+    intialMovie['id'] = 475557; // Joker Movie
+    this.textBoxDisplayValue(intialMovie);
+  }
+
   render() {
     const { value, suggestions, selectedMovie } = this.state;
-    //  this.setState()
     const inputProps = {
       placeholder: 'Movie Name',
       value,
@@ -123,19 +165,41 @@ export default class HomePage extends React.Component {
     };
 
     return (
-      <div className="App">
-        <h1 className="hello">IMDB Movies</h1>
-        <Autosuggest
-          className="text-input"
-          suggestions={suggestions}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          getSuggestionValue={this.textBoxDisplayValue}
-          renderSuggestion={this.renderSuggestion}
-          inputProps={inputProps}
-        />
+      <div className="background" id="background">
+        {/* <div id="background" /> */}
+        <div className="App">
+          <Container>
+            <Row>
+              <Col className="col">
+                <h1 className="logo">IMDB Movies</h1>
+              </Col>
+              <Col className="col">
+                <Autosuggest
+                  className=" text-input"
+                  suggestions={suggestions}
+                  onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                  onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                  getSuggestionValue={this.textBoxDisplayValue}
+                  renderSuggestion={this.renderSuggestion}
+                  inputProps={inputProps}
+                />
+              </Col>
+            </Row>
+          </Container>
+        </div>
+
         <MovieCard movie={selectedMovie} />
+        <Footer />
       </div>
     );
+  }
+  componentDidUpdate() {
+    // if (this.selectedMovie.state.backdrop_path !== undefined)
+    //   document.body.style.backgroundImage =
+    //     'url(https://image.tmdb.org/t/p/original/' +
+    //     this.selectedMovie.state.backdrop_path +
+    //     ')';
+    // console.log(this.state.selectedMovie.backdrop_path);
+    //console.log(this.getBackgound());
   }
 }
