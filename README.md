@@ -1,87 +1,62 @@
-# IMDB Movie Search React APP
+# IMDB Movie Search React App
+[![Heroku](https://heroku-badge.herokuapp.com/?app=xen-imdb)]
 
-One Paragraph of project description goes here
 
-## Getting Started
+IMDb Movie Search is a responsive [React](http://facebook.github.io/react/index.html) app that utilises [ElasticSearch.js](https://www.elastic.co/), loading data via [The Movie Database (TMDb) API](https://www.themoviedb.org/documentation/api).
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+## Demo
+[TMDb Movie Search - Live DEMO](https://xen-imdb.herokuapp.com/)
 
-What things you need to install the software and how to install them
 
-```
-Give examples
-```
+## Tools
+Key tools used in this React project are:
 
-### Installing
+| Tool             | Description   |
+| :-------------:|--------------|
+| [React](http://facebook.github.io/react/index.html) | A JavaScript library for building user interfaces |
+| [Bootstrap](http://getbootstrap.com/) | Build responsive, mobile-first projects on the web with the world's most popular front-end component library |
+| [SASS](http://sass-lang.com/) | 	Sass is the most mature, stable, and powerful professional grade CSS extension language in the world |
+| [Browserify](http://browserify.org/) | Browserify lets you `require('modules')` in the browser by bundling up all of your dependencies |
+| [Babel](https://babeljs.io/) | Use next generation JavaScript, today |
+| [Gulp](http://gulpjs.com/) | Gulp is a toolkit for automating painful or time-consuming tasks in your development workflow |
 
-A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+## Installation
+[node.js](http://nodejs.org/download/) is required to get ``npm``.
 
-```
-Give the example
-```
+If you would like to download the code and try it for yourself:
 
-And repeat
+1. Clone the repo: `https://github.com/zcam007/IMDB-Movie-Search.git`
+2. `cd IMDB-Movie-Search`
+2. Install packages: `npm install`
+3. Build project and launch: `npm start`
+4. Open your browser at: `http://localhost:3000`
 
-```
-until finished
-```
 
-End with an example of getting some data out of the system or using it for a little demo
+## Browser Support
+This project makes usage of the Fetch API, utilising a polyfill for older browsers.
 
-## Running the tests
+- Chrome 42+
+- Firefox 39+
+- Safari 10+ (with polyfill)
+- Internet Explorer 11+ (with polyfill)
+- Edge 14+
 
-Explain how to run the automated tests for this system
+## Node.js
+Supports LTS version (v6).
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+[ChandraMouli R](https://hello.chandu.dev)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
