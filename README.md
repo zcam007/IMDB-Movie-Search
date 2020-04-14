@@ -44,7 +44,7 @@ This project makes usage of the Fetch API, utilising a polyfill for older browse
 - Edge 14+
 
 ## Node.js
-Supports LTS version (v6).
+Supports LTS version(v6).
 
 
 ## Contributing
